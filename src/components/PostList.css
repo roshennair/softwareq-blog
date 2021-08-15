@@ -1,0 +1,4 @@
+.post-list {
+	margin: 1rem auto;
+	max-width: var(--content-width);
+}

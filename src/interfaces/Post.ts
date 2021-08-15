@@ -1,0 +1,16 @@
+export default interface Post {
+	id: number,
+	title: string,
+	createdAt: number,
+	createdAtDateTimeOffset: number,
+	createdBy: string,
+	mainAuthor: string | null,
+	secondaryAuthor: string | null,
+	otherAuthors: string[],
+	content: string,
+	linkToHeaderImage: string,
+	copyrightOwner: string,
+	isPublished: boolean,
+	tags?: string[],
+	categories?: string[],
+}
