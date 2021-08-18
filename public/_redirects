@@ -1,2 +1,3 @@
-/api/* https://softwareq-merdeka-api.azure-api.net/blog/v1 200
+/ListAll https://softwareq-merdeka-api.azure-api.net/blog/v1/ListAll 200
+/ById https://softwareq-merdeka-api.azure-api.net/blog/v1/ById 200
 /* /index.html 200
