@@ -14,5 +14,5 @@ A simple blog web app built with React & TypeScript for [SoftwareQ's Merdeka Cod
 
 1. Run `git clone https://github.com/roshennair/softwareq-blog.git` to clone the repository locally.
 2. Run `npm install` to install all dependencies.
-3. Run `npm run start` to run the app locally in a development server.
+3. Run `REACT_APP_SUB_KEY=<your-api-key> npm run start` to run the app locally in a development server (Substitute `<your-api-key>` with your SoftwareQ content API key).
 4. Visit `http://localhost:3000` in your browser to use the app.
