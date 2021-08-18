@@ -1,41 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import Post from '../interfaces/Post';
-import blog from '../services/blog';
+import { useBlog } from '../contexts/blogContext';
 import Avatar from './Avatar';
 import Loader from './Loader';
 import './PostDetails.css';
 
 const PostDetails = () => {
-	const [post, setPost] = useState<Post | null>(null);
-	const [isLoading, setIsLoading] = useState(false);
-	const { id } = useParams<{ id: string }>();
+	const id = +(useParams<{ id: string }>().id);
 	const history = useHistory();
+	const { isLoading, fetchPost, currentPost } = useBlog();
+
+	if (isNaN(id)) history.push('/not-found');
 
 	useEffect(() => {
-		const fetchPost = async (id: number) => {
-			setIsLoading(true)
-			const returnedPost = await blog.getOnePost(id);
-			if (returnedPost && returnedPost.isPublished) {
-				setPost(returnedPost);
-				setIsLoading(false);
-			} else {
-				history.push('/not-found');
-			}
-		}
-
-		fetchPost(+id);
+		fetchPost(id);
+		// eslint-disable-next-line
 	}, []);
-
 
 	return (
 		<>
 			<Loader isLoading={isLoading} />
 			{
-				post && (
+				currentPost && (
 					<div className="post">
-						<img src={post.linkToHeaderImage} alt={post.title} />
-						<h1>{post.title}</h1>
+						<img src={currentPost.linkToHeaderImage} alt={currentPost.title} />
+						<h1>{currentPost.title}</h1>
 						<hr />
 						<div className="post-creation">
 							<div className="post-avatar-container">
@@ -44,26 +33,26 @@ const PostDetails = () => {
 							<div className="post-creation-details">
 								<span>
 									{
-										post.otherAuthors.length > 0
+										currentPost.otherAuthors.length > 0
 											? <span>
-												<span className="post-creator">{post.mainAuthor} </span>
+												<span className="post-creator">{currentPost.mainAuthor} </span>
 												with help from
-												<span className="post-creator"> {post.otherAuthors.join(', ')}</span>
+												<span className="post-creator"> {currentPost.otherAuthors.join(', ')}</span>
 											</span>
 											: <span className="post-creator">
-												{post.createdBy}
+												{currentPost.createdBy}
 											</span>
 									}
 								</span>
 								<span>Posted on <span className="post-date">
-									{(new Date(post.createdAt)).toLocaleDateString()}
+									{(new Date(currentPost.createdAt)).toLocaleDateString()}
 								</span>
 								</span>
 
 							</div>
 						</div>
 						<hr />
-						<p className="post-content">{post.content}</p>
+						<p className="post-content">{currentPost.content}</p>
 					</div>
 				)
 			}

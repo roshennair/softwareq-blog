@@ -11,7 +11,7 @@ const getAllPosts = async () => {
 		const posts: Post[] = await res.json();
 		return posts;
 	} catch (e) {
-		console.log('Error fetching all posts.', e);
+		console.log('Error fetching all posts.');
 		return [];
 	}
 }
@@ -23,7 +23,8 @@ const getOnePost = async (id: number) => {
 		const post: Post = await res.json();
 		return post;
 	} catch (e) {
-		console.error(`Post with ID of ${id} not found.`, e);
+		console.error(`Post with ID of ${id} not found.`);
+		return null;
 	}
 }
 

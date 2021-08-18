@@ -1,4 +1,7 @@
 .post-list {
 	margin: 1rem auto;
+	width: 100%;
 	max-width: var(--content-width);
+	display: flex;
+	flex-direction: column;
 }

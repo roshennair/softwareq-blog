@@ -1,23 +1,15 @@
-import { useState, useEffect } from 'react';
-import blog from '../services/blog';
-import Post from '../interfaces/Post';
+import { useEffect } from 'react';
 import Loader from './Loader';
 import PostList from './PostList';
 import './Home.css';
+import { useBlog } from '../contexts/blogContext';
 
 const Home = () => {
-	const [isLoading, setIsLoading] = useState(false);
-	const [posts, setPosts] = useState<Post[]>([]);
+	const { posts, fetchPosts, isLoading } = useBlog();
 
 	useEffect(() => {
-		const fetchPosts = async () => {
-			setIsLoading(true)
-			const returnedPosts = await blog.getAllPosts();
-			setPosts(returnedPosts);
-			setIsLoading(false);
-		}
-
 		fetchPosts();
+		// eslint-disable-next-line
 	}, []);
 
 	return (
@@ -26,7 +18,7 @@ const Home = () => {
 			<Loader isLoading={isLoading} />
 			<PostList posts={posts} />
 		</div>
-	)
+	);
 }
 
 export default Home;
