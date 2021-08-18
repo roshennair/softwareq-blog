@@ -1,0 +1,14 @@
+.tag, .category {
+	font-weight: bold;
+	border-radius: 8px;
+	padding: 0.2rem 0.4rem;
+	margin-left: 0.3rem;
+}
+
+.tag {
+	border: 3px solid var(--tag-blue);
+}
+
+.category {
+	border: 3px solid var(--category-green);
+}

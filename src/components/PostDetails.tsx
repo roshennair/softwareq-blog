@@ -4,6 +4,7 @@ import { useBlog } from '../contexts/blogContext';
 import Avatar from './Avatar';
 import Loader from './Loader';
 import './PostDetails.css';
+import Label from './Label';
 
 const PostDetails = () => {
 	const id = +(useParams<{ id: string }>().id);
@@ -50,6 +51,22 @@ const PostDetails = () => {
 								</span>
 
 							</div>
+						</div>
+						<div className="post-categories">
+							<div className="label"><strong>Categories:</strong></div>
+							{
+								currentPost.categories && currentPost.categories.length > 0
+									? currentPost.categories.map((category, i) => <Label key={i} text={category} type="category" />)
+									: <div style={{ marginLeft: '0.3rem' }}>None</div>
+							}
+						</div>
+						<div className="post-tags">
+							<div className="label"><strong>Tags:</strong></div>
+							{
+								currentPost.tags && currentPost.tags.length > 0
+									? currentPost.tags.map((tag, i) => <Label key={i} text={tag} type="tag" />)
+									: <div style={{ marginLeft: '0.3rem' }}>None</div>
+							}
 						</div>
 						<hr />
 						<p className="post-content">{currentPost.content}</p>

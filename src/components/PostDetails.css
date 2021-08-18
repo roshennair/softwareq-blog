@@ -56,6 +56,16 @@
 	margin-bottom: 0.2rem;
 }
 
+.post-categories, .post-tags {
+	width: 100%;
+	max-width: var(--content-width);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 1.1rem;
+	margin-bottom: 0.8rem;
+}
+
 .post-content {
 	margin: 1.5em 0 1.5em 0;
 	font-size: 1.15em;
