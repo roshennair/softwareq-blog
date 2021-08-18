@@ -34,6 +34,7 @@ const Pagination = () => {
 	useEffect(() => {
 		history.push(`/blog/page?pagesize=${pageSize}&page=${page}`);
 		fetchPagePosts();
+		// eslint-disable-next-line
 	}, [page]);
 
 	return (

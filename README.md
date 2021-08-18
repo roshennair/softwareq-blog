@@ -4,9 +4,9 @@ A simple blog web app built with React & TypeScript for [SoftwareQ's Merdeka Cod
 
 ## How to run the app locally
 
-Prerequisites: Have `git` and `npm` installed locally.
+**Prerequisites**: Have `git` and `npm` installed locally.
 
-1. Run `git clone <repo-url>` to clone the repository locally.
+1. Run `git clone https://github.com/roshennair/softwareq-blog.git` to clone the repository locally.
 2. Run `npm install` to install all dependencies.
 3. Run `npm run start` to run the app locally in a development server.
 4. Visit `http://localhost:3000` in your browser to use the app.
