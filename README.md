@@ -1,5 +1,7 @@
 # SoftwareQ Blog
 
+![Screenshot of SoftwareQ Blog Homepage](https://i.ibb.co/02BNf64/softwareq.png)
+
 A simple blog web app built with React & TypeScript for [SoftwareQ's Merdeka Coding Challenge](https://www.softwareq.com/merdeka-challenge/). The web app fetches blog post data directly from [SoftwareQ's Content API](https://softwareq-merdeka-api.azure-api.net/blog/v1/).
 
 ## How to run the app locally
